@@ -3,29 +3,37 @@
 <head>
   <meta charset="utf-8">
   <title>{{ basics.name }} - Resume</title>
+  <meta name="author" content="{{ basics.name }}">
+  <meta name="keywords" content="{{ basics.headline }}">
   <style>
-    @page { size: A4; margin: 16mm 16mm 14mm; }
-    body { font-family: "Inter", "Helvetica Neue", Arial, sans-serif; font-size: 9.6pt; line-height: 1.42; color: #1a1a1a; }
-    h1 { font-size: 20pt; margin: 0; letter-spacing: -0.01em; }
-    .title { margin: 2px 0 6px; color: #444; font-size: 11pt; }
-    .contact { color: #555; font-size: 8.8pt; }
-    .contact a { color: #555; text-decoration: none; margin-right: 10px; }
-    h2 { font-size: 10pt; text-transform: uppercase; letter-spacing: 0.08em; color: #2b5ea7; border-bottom: 1px solid #d8dde6; padding-bottom: 3px; margin: 16px 0 8px; }
-    .job { margin-bottom: 9px; page-break-inside: avoid; }
-    .job-head { display: flex; justify-content: space-between; }
-    .job-head { gap: 12px; }
-    .meta { color: #666; font-size: 8.8pt; white-space: nowrap; flex-shrink: 0; }
-    ul { margin: 3px 0 0; padding-left: 15px; }
-    li { margin-bottom: 2px; }
-    p { margin: 0 0 4px; }
+    @page { size: A4; margin: 12mm 14mm 11mm; }
+    body { font-family: "Inter", "Helvetica Neue", Arial, sans-serif; font-size: 9.2pt; line-height: 1.34; color: #1a1a1a; }
+    h1 { font-size: 19pt; margin: 0; letter-spacing: -0.01em; }
+    .title { margin: 2px 0 1px; font-size: 10.5pt; font-weight: 600; color: #2b5ea7; }
+    .stack { margin: 0 0 4px; color: #444; font-size: 9pt; }
+    .contact { color: #555; font-size: 8.6pt; margin: 0; }
+    .contact a { color: #555; text-decoration: none; }
+    h2 { font-size: 9.6pt; text-transform: uppercase; letter-spacing: 0.08em; color: #2b5ea7; border-bottom: 1px solid #d8dde6; padding-bottom: 2px; margin: 10px 0 5px; }
+    .company { margin-bottom: 5px; }
+    .company-name { font-weight: 700; font-size: 10pt; }
+    .company-line, .role-line { margin: 0; }
+    .role { margin: 3px 0 5px; page-break-inside: avoid; }
+    .head { display: flex; justify-content: space-between; gap: 12px; }
+    .meta { color: #666; font-size: 8.6pt; white-space: nowrap; flex-shrink: 0; }
+    .context { margin: 1px 0 0; color: #555; font-style: italic; }
+    ul { margin: 2px 0 0; padding-left: 14px; }
+    li { margin-bottom: 1.5px; }
+    p { margin: 0 0 3px; }
   </style>
 </head>
 <body>
   <h1>{{ basics.name }}</h1>
   <p class="title">{{ basics.title }}</p>
+  <p class="stack">{{ basics.headline }}</p>
   <p class="contact">
-    {{ basics.location }} &middot; <a href="mailto:{{ basics.email }}">{{ basics.email }}</a>
-    {% for link in basics.links %}<a href="{{ link.url }}">{{ link.url | replace("https://", "") | replace("www.", "") }}</a>{% endfor %}
+    {{ basics.location }} &middot; <a href="mailto:{{ basics.email }}">{{ basics.email }}</a> &middot;
+    <a href="https://rrafaelpinto.github.io">rrafaelpinto.github.io</a>
+    {% for link in basics.links %} &middot; <a href="{{ link.url }}">{{ link.url | replace("https://", "") | replace("www.", "") | trim("/") }}</a>{% endfor %}
   </p>
 
   <h2>Summary</h2>
@@ -33,27 +41,32 @@
 
   <h2>Experience</h2>
   {% for job in experience %}
-  <div class="job">
-    <div class="job-head">
-      <span><strong>{{ job.role }}</strong>, {{ job.company }}</span>
-      {% if job.period %}<span class="meta">{{ job.period }}</span>{% endif %}
+  <div class="company">
+    <p class="company-line"><span class="company-name">{{ job.company }}</span> <span class="meta">| {{ job.location }}</span></p>
+    {% for role in job.roles %}
+    <div class="role">
+      <p class="role-line"><strong>{{ role.title }}</strong> <span class="meta">| {{ role.period }}</span></p>
+      {% if role.context %}<p class="context">{{ role.context }}</p>{% endif %}
+      <ul>{% for h in role.highlights %}<li>{{ h }}</li>{% endfor %}</ul>
     </div>
-    <ul>{% for h in job.highlights %}<li>{{ h }}</li>{% endfor %}</ul>
+    {% endfor %}
   </div>
   {% endfor %}
 
-  <h2>Skills</h2>
-  {% for s in skills %}<p><strong>{{ s.group }}:</strong> {{ s["items"] | join(", ") }}</p>{% endfor %}
-
-  <h2>Selected projects</h2>
-  {% for p in projects if p.url %}<p><strong>{{ p.name }}</strong> ({{ p.stack | join(", ") }}): {{ p.description }}</p>{% endfor %}
-
   <h2>Education</h2>
   {% for e in education %}
-  <div class="job-head"><span><strong>{{ e.degree }}</strong>, {{ e.institution }}</span><span class="meta">{{ e.period }}</span></div>
+  <p><strong>{{ e.degree }}</strong>, {{ e.institution }} <span class="meta">| {{ e.period }}</span></p>
   {% endfor %}
 
-  <h2>Languages</h2>
-  <p>{% for l in languages %}{{ l.name }} ({{ l.level }}){% if not loop.last %} &middot; {% endif %}{% endfor %}</p>
+  <h2>Skills</h2>
+  {% for s in skills if s.group != "Other" %}<p><strong>{{ s.group }}:</strong> {{ s["items"] | join(", ") }}</p>{% endfor %}
+
+  <h2>Projects</h2>
+  {% for p in projects if p.url %}<p><strong>{{ p.name }}</strong> ({{ p.stack | join(", ") }}): {{ p.description }}</p>{% endfor %}
+
+  <h2>Additional</h2>
+  <p><strong>Publications:</strong> {{ publications | length }} papers on NLP and public health analytics (full list at rrafaelpinto.github.io).</p>
+  <p><strong>Certifications:</strong> {{ certifications | join(", ") }}</p>
+  <p><strong>Languages:</strong> {% for l in languages %}{{ l.name }} ({{ l.level }}){% if not loop.last %}, {% endif %}{% endfor %}</p>
 </body>
 </html>

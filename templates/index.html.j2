@@ -14,8 +14,8 @@
   <main>
     <header class="hero">
       <h1>{{ basics.name }}</h1>
-      <p class="title">{{ basics.title }} &middot; {{ basics.headline }}</p>
-      <p class="tagline">{{ basics.tagline }}</p>
+      <p class="title">{{ basics.title }}</p>
+      <p class="stack">{{ basics.headline }}</p>
       <nav class="links">
         {% for link in basics.links %}<a href="{{ link.url }}">{{ link.label }}</a>{% endfor %}
         <a href="mailto:{{ basics.email }}">Email</a>
@@ -24,28 +24,44 @@
     </header>
 
     <section>
-      <h2>About</h2>
+      <h2>Summary</h2>
       <p>{{ basics.summary }}</p>
     </section>
 
     <section>
-      <h2>Selected work</h2>
-      <div class="cases">
-        {% for case in cases %}
-        <article class="case" id="{{ case.slug }}">
-          <header>
-            <h3>{{ case.title }}</h3>
-            <span class="meta">{{ case.period }}</span>
-          </header>
-          <dl>
-            <dt>Problem</dt><dd>{{ case.problem }}</dd>
-            <dt>Approach</dt><dd>{{ case.approach }}</dd>
-            <dt>Result</dt><dd>{{ case.result }}</dd>
-          </dl>
-          <ul class="tags">{% for t in case.stack %}<li>{{ t }}</li>{% endfor %}</ul>
-        </article>
+      <h2>Experience</h2>
+      {% for job in experience %}
+      <div class="company">
+        <div class="company-head">
+          <h3>{{ job.company }}</h3>
+          <span class="meta">{{ job.location }}</span>
+        </div>
+        {% for role in job.roles %}
+        <div class="role">
+          <div class="role-head">
+            <strong>{{ role.title }}</strong>
+            <span class="meta">{{ role.period }}</span>
+          </div>
+          {% if role.context %}<p class="context">{{ role.context }}</p>{% endif %}
+          <ul>{% for h in role.highlights %}<li>{{ h }}</li>{% endfor %}</ul>
+        </div>
         {% endfor %}
       </div>
+      {% endfor %}
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      {% for e in education %}
+      <div class="row"><span><strong>{{ e.degree }}</strong><br><span class="muted">{{ e.institution }}</span></span><span class="meta">{{ e.period }}</span></div>
+      {% endfor %}
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      {% for s in skills %}
+      <p class="skill"><strong>{{ s.group }}:</strong> {{ s["items"] | join(", ") }}</p>
+      {% endfor %}
     </section>
 
     <section>
@@ -62,35 +78,19 @@
     </section>
 
     <section>
-      <h2>Experience</h2>
-      {% for job in experience %}
-      <div class="job">
-        <div class="job-head">
-          <span><strong>{{ job.role }}</strong><br><span class="company">{{ job.company }}</span></span>
-          {% if job.period %}<span class="meta">{{ job.period }}</span>{% endif %}
-        </div>
-        <ul>{% for h in job.highlights %}<li>{{ h }}</li>{% endfor %}</ul>
+      <h2>Publications</h2>
+      <ul class="plain">{% for pub in publications %}<li>{{ pub }}</li>{% endfor %}</ul>
+    </section>
+
+    <section class="two-col">
+      <div>
+        <h2>Certifications</h2>
+        <ul class="plain">{% for c in certifications %}<li>{{ c }}</li>{% endfor %}</ul>
       </div>
-      {% endfor %}
-    </section>
-
-    <section>
-      <h2>Skills</h2>
-      {% for s in skills %}
-      <p class="skill"><strong>{{ s.group }}:</strong> {{ s["items"] | join(", ") }}</p>
-      {% endfor %}
-    </section>
-
-    <section>
-      <h2>Education</h2>
-      {% for e in education %}
-      <div class="job-head edu"><span><strong>{{ e.degree }}</strong>, {{ e.institution }}</span><span class="meta">{{ e.period }}</span></div>
-      {% endfor %}
-    </section>
-
-    <section>
-      <h2>Languages</h2>
-      <p>{% for l in languages %}<strong>{{ l.name }}</strong> ({{ l.level }}){% if not loop.last %} &middot; {% endif %}{% endfor %}</p>
+      <div>
+        <h2>Languages</h2>
+        <ul class="plain">{% for l in languages %}<li><strong>{{ l.name }}</strong>: {{ l.level }}</li>{% endfor %}</ul>
+      </div>
     </section>
 
     <footer>

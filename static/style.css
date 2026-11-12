@@ -31,8 +31,7 @@ a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 .hero h1 { font-size: 2.2rem; margin: 0; letter-spacing: -0.02em; }
-.hero .title { margin: 4px 0 12px; color: var(--muted); font-size: 1.1rem; }
-.hero .tagline { margin: 0 0 20px; max-width: 60ch; }
+.hero .title { margin: 4px 0 4px; color: var(--muted); font-size: 1.1rem; }
 .links { display: flex; flex-wrap: wrap; gap: 8px; }
 .links a {
   border: 1px solid var(--border);
@@ -52,28 +51,28 @@ h2 {
 }
 .meta { color: var(--muted); font-size: 0.88rem; white-space: nowrap; }
 
-.cases { display: grid; gap: 16px; }
-.case {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 20px;
-}
-.case header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
-.case h3 { margin: 0; font-size: 1.1rem; }
-.case dl { margin: 12px 0; }
-.case dt { font-weight: 600; font-size: 0.85rem; color: var(--muted); margin-top: 10px; }
-.case dd { margin: 2px 0 0; }
 .tags { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
 .tags li { background: var(--tag); font-size: 0.8rem; padding: 2px 10px; border-radius: 6px; }
+.muted { color: var(--muted); }
+.hero .stack { margin: 0 0 20px; color: var(--muted); font-size: 0.95rem; }
 
-.job { margin-bottom: 20px; }
-.job-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
-.job ul { margin: 6px 0 0; padding-left: 20px; }
+.company { padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid var(--border); }
+.company:last-child { border-bottom: 0; }
+.company-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
+.company-head h3 { margin: 0 0 8px; font-size: 1.08rem; }
+.role { margin: 0 0 14px; padding-left: 14px; border-left: 2px solid var(--border); }
+.role-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.context { margin: 4px 0 0; color: var(--muted); font-size: 0.94rem; }
+.role ul { margin: 6px 0 0; padding-left: 20px; }
+.role li { margin-bottom: 4px; }
+
+.row { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
 .skill { margin: 0 0 6px; }
-.company { color: var(--muted); }
-.edu { margin-bottom: 8px; }
-.projects { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.plain { margin: 0; padding-left: 20px; }
+.plain li { margin-bottom: 6px; }
+.two-col { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+.projects { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 .project { border: 1px solid var(--border); border-radius: 10px; padding: 16px; background: var(--card); }
 .project h3 { margin: 0 0 6px; font-size: 1rem; }
 .project p { margin: 0 0 10px; font-size: 0.94rem; }
