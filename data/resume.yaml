@@ -1,0 +1,204 @@
+basics:
+  name: Rafael Pinto
+  title: Senior Software Engineer
+  headline: Python, Django, React, Applied AI
+  tagline: Senior Software Engineer with 15+ years building backend systems, APIs and AI-enabled products for healthtech, public administration and education.
+  location: Natal, Brazil (remote)
+  email: rrafaelpinto@gmail.com
+  links:
+    - label: GitHub
+      url: https://github.com/rrafaelpinto
+    - label: LinkedIn
+      url: https://www.linkedin.com/in/rafaelmpinto/
+  summary: >
+    I am a Senior Software Engineer with more than 15 years of experience in Python, Django,
+    Django REST Framework, React and PostgreSQL. I have worked on large telehealth and public
+    administration systems, led teams as technical lead and project manager, and spent five
+    years applying NLP and machine learning to public health data. Today I build backend
+    services for a US healthtech company and use AI coding agents (Claude Code and OpenAI
+    Codex) every day, always with human review and architectural consistency. I hold a PhD
+    in Computer Science.
+
+skills:
+  - group: Languages
+    items: [Python, TypeScript, JavaScript, SQL, Java]
+  - group: Backend
+    items: [Django, Django REST Framework, FastAPI, Flask, Celery, REST API design, Domain modeling]
+  - group: Frontend
+    items: [React, Next.js]
+  - group: Data
+    items: [PostgreSQL, Redis, Pandas, Scrapy, Data pipelines]
+  - group: AI and NLP
+    items: [OpenAI APIs, LangChain, CrewAI, NLTK, TF-IDF, VADER, DBSCAN, Claude Code, OpenAI Codex]
+  - group: Cloud and quality
+    items: [Microsoft Azure, Docker, GitHub Actions, GitLab CI/CD, Unit and integration testing, Observability]
+  - group: Delivery
+    items: [Technical leadership, Scrum, Sprint planning, Requirements analysis, MVP delivery]
+
+experience:
+  - company: ZivianHealth
+    role: Senior Software Engineer
+    location: Remote
+    period: Oct 2025 to Present
+    highlights:
+      - Build backend services with Python, Django and Django REST Framework for a healthcare workforce management platform made of several integrated applications.
+      - Design REST APIs consumed by React and TypeScript apps, including validation, permissions, filtering, pagination and consistent error handling.
+      - Coordinate changes across a distributed multi-repository architecture covering core services, workforce apps, analytics and infrastructure.
+      - Maintain asynchronous and scheduled workflows with Celery and Redis for background processing, synchronization and notifications.
+      - Improve Django ORM and PostgreSQL access patterns, automated tests and observability, and debug production issues on Azure.
+
+  - company: IFRN, Federal Institute of Rio Grande do Norte
+    role: Information Technology Analyst / Software Engineer
+    location: Natal, Brazil
+    period: null
+    highlights:
+      - Develop and maintain institutional information systems, including SUAP modules and related workflows.
+      - Coordinated the IFRN-UFT technical cooperation project that deployed SUAP at the Federal University of Tocantins (Dec 2024 to Jan 2026). All 6 project goals were completed.
+
+  - company: LAIS, Technological Innovation in Health Laboratory
+    role: Senior Software Developer and Project Manager, Telehealth Project
+    location: Natal, Brazil
+    period: Feb 2023 to Dec 2025
+    highlights:
+      - Led end-to-end development of a large-scale telehealth platform, focused on backend architecture, API integration and data-driven features.
+      - Designed and maintained scalable Django backends integrated with health data pipelines.
+      - Ran sprint planning, code reviews and mentoring, and owned CI/CD pipelines on GitLab.
+      - Translated health domain requirements into well-scoped technical tasks with technical and non-technical stakeholders.
+
+  - company: Thalocan Research Innovations
+    role: Project Manager / Technical Lead (contract)
+    location: Remote
+    period: Jan 2024 to Dec 2024
+    highlights:
+      - Led a multidisciplinary team, planned schedules and kept deliverables within scope and deadlines.
+      - Turned business needs into technical specifications and kept clients aligned on priorities and outcomes.
+
+  - company: LAIS, Technological Innovation in Health Laboratory
+    role: Senior Software Developer / Data Analyst, Hermes Project
+    location: Natal, Brazil
+    period: Feb 2018 to Feb 2023
+    highlights:
+      - Built Hermes, a Python ecosystem with Scrapy, Pandas and NLTK to collect, clean and analyze large volumes of online news about public health.
+      - Adapted VADER sentiment analysis to Brazilian Portuguese and used TF-IDF and DBSCAN clustering to measure media coverage of health campaigns.
+      - Applied Interrupted Time Series and segmented regression to evaluate the impact of the national "Syphilis No!" project.
+
+  - company: Athabasca University
+    role: Data Analyst (doctoral research stay)
+    location: Edmonton, Canada
+    period: Sep 2019 to Dec 2020
+    highlights:
+      - Built Python data ingestion tools from REST APIs and Scrapy for policy and behavioral research.
+      - Evaluated machine learning frameworks and presented findings to faculty and technical teams.
+
+  - company: LAIS, Technological Innovation in Health Laboratory
+    role: Software Developer, Simaies Project
+    location: Natal, Brazil
+    period: Feb 2015 to Feb 2018
+    highlights:
+      - Developed Django web applications and REST APIs, designed PostgreSQL databases and mentored junior developers.
+
+  - company: Court of Justice of Rio Grande do Norte (TJRN)
+    role: Software Developer
+    location: Natal, Brazil
+    period: Sep 2010 to Apr 2014
+    highlights:
+      - Built Java web applications and component architecture, and mentored interns and junior developers.
+
+  - company: Memes Educational Technology
+    role: Software Developer
+    location: São Paulo, Brazil
+    period: Jan 2008 to Aug 2010
+    highlights:
+      - Developed a distance learning communication portal, including REST payment integrations.
+
+education:
+  - degree: PhD, Computer Science
+    institution: Federal University of Rio Grande do Norte (UFRN)
+    period: 2019 to 2022
+  - degree: Master's, Computer Software Engineering
+    institution: Federal University of Rio Grande do Norte (UFRN)
+    period: 2014 to 2016
+  - degree: Specialization, Computer Systems Analysis
+    institution: Potiguar University
+    period: 2006 to 2007
+  - degree: Bachelor's, Computer Systems Analysis
+    institution: Potiguar University
+    period: 2001 to 2004
+
+languages:
+  - name: Portuguese
+    level: Native
+  - name: English
+    level: Professional working proficiency
+  - name: Spanish
+    level: Limited working proficiency
+
+cases:
+  - slug: hermes
+    title: Hermes, NLP for public health evaluation
+    period: 2018 to 2023
+    stack: [Python, Scrapy, Pandas, NLTK, VADER, TF-IDF, DBSCAN]
+    problem: >
+      Health authorities needed evidence on whether national campaigns against syphilis
+      changed media coverage and health outcomes, using large amounts of unstructured news.
+    approach: >
+      I built a modular pipeline to collect, clean and process online news. I adapted VADER
+      sentiment analysis to Brazilian Portuguese, clustered articles with TF-IDF and DBSCAN,
+      and used Interrupted Time Series with segmented regression on congenital syphilis rates.
+    result: >
+      The platform supported the evaluation of the "Syphilis No!" project, linking campaign
+      periods to changes in news coverage and in health indicators.
+
+  - slug: telehealth
+    title: Large-scale telehealth platform
+    period: 2023 to 2025
+    stack: [Python, Django, PostgreSQL, GitLab CI/CD]
+    problem: >
+      A public telehealth platform had to grow in features and users while integrating with
+      health data pipelines and serving many stakeholders.
+    approach: >
+      As technical lead and project manager, I owned the backend architecture and API
+      integrations, ran sprints and code reviews, and set up CI/CD and performance monitoring.
+    result: >
+      Continuous delivery with traceable releases, and requirements from health specialists
+      turned into small, well-scoped engineering tasks.
+
+  - slug: suap-uft
+    title: Deploying SUAP at a federal university
+    period: 2024 to 2026
+    stack: [Python, Django, PostgreSQL]
+    problem: >
+      The Federal University of Tocantins (UFT) needed to adopt SUAP, the management system
+      developed at IFRN, under a formal cooperation agreement with fixed goals and deadlines.
+    approach: >
+      I coordinated the project end to end: technical planning, deployment, knowledge
+      transfer to the local team and reporting to both institutions.
+    result: >
+      All 6 project goals were completed and the final technical report was delivered.
+
+projects:
+  - name: ResumeBot
+    description: >
+      Candidate profile app with a recruiter Q&A agent that answers in first person, using only
+      facts the candidate verified and made public. Includes guest access protection, AI cost
+      limits and offline evaluation.
+    stack: [Django, DRF, PostgreSQL, React, TypeScript, OpenAI]
+    url: https://github.com/rrafaelpinto/mychatbot
+  - name: Post Pilot
+    description: >
+      LinkedIn content workspace with a multi-stage AI pipeline: topic selection, drafting,
+      evidence checks, editorial review and quality evaluation.
+    stack: [DRF, React, TypeScript, Celery, Redis, OpenAI]
+    url: https://github.com/rrafaelpinto/post-pilot
+  - name: GeoNote
+    description: >
+      Location-based reminders with geofencing, local notifications, cloud sync and
+      passwordless authentication.
+    stack: [Flutter, Django, DRF, PostgreSQL, PostGIS]
+    url: null
+  - name: Talent Pool
+    description: >
+      Talent directory with structured candidate profiles, publication controls, search and
+      PDF resume generation.
+    stack: [Django, PostgreSQL, HTMX, Tailwind CSS, ReportLab]
+    url: null

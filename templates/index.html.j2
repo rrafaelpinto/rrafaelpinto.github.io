@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ basics.name }} | {{ basics.title }}</title>
+  <meta name="description" content="{{ basics.tagline }}">
+  <meta property="og:title" content="{{ basics.name }} | {{ basics.title }}">
+  <meta property="og:description" content="{{ basics.tagline }}">
+  <meta property="og:type" content="profile">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <h1>{{ basics.name }}</h1>
+      <p class="title">{{ basics.title }} &middot; {{ basics.headline }}</p>
+      <p class="tagline">{{ basics.tagline }}</p>
+      <nav class="links">
+        {% for link in basics.links %}<a href="{{ link.url }}">{{ link.label }}</a>{% endfor %}
+        <a href="mailto:{{ basics.email }}">Email</a>
+        <a href="resume.pdf" class="primary">Resume (PDF)</a>
+      </nav>
+    </header>
+
+    <section>
+      <h2>About</h2>
+      <p>{{ basics.summary }}</p>
+    </section>
+
+    <section>
+      <h2>Selected work</h2>
+      <div class="cases">
+        {% for case in cases %}
+        <article class="case" id="{{ case.slug }}">
+          <header>
+            <h3>{{ case.title }}</h3>
+            <span class="meta">{{ case.period }}</span>
+          </header>
+          <dl>
+            <dt>Problem</dt><dd>{{ case.problem }}</dd>
+            <dt>Approach</dt><dd>{{ case.approach }}</dd>
+            <dt>Result</dt><dd>{{ case.result }}</dd>
+          </dl>
+          <ul class="tags">{% for t in case.stack %}<li>{{ t }}</li>{% endfor %}</ul>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section>
+      <h2>Side projects</h2>
+      <div class="projects">
+        {% for p in projects %}
+        <article class="project">
+          <h3>{% if p.url %}<a href="{{ p.url }}">{{ p.name }}</a>{% else %}{{ p.name }} <span class="meta">(private repo)</span>{% endif %}</h3>
+          <p>{{ p.description }}</p>
+          <ul class="tags">{% for t in p.stack %}<li>{{ t }}</li>{% endfor %}</ul>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      {% for job in experience %}
+      <div class="job">
+        <div class="job-head">
+          <span><strong>{{ job.role }}</strong><br><span class="company">{{ job.company }}</span></span>
+          {% if job.period %}<span class="meta">{{ job.period }}</span>{% endif %}
+        </div>
+        <ul>{% for h in job.highlights %}<li>{{ h }}</li>{% endfor %}</ul>
+      </div>
+      {% endfor %}
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      {% for s in skills %}
+      <p class="skill"><strong>{{ s.group }}:</strong> {{ s["items"] | join(", ") }}</p>
+      {% endfor %}
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      {% for e in education %}
+      <div class="job-head edu"><span><strong>{{ e.degree }}</strong>, {{ e.institution }}</span><span class="meta">{{ e.period }}</span></div>
+      {% endfor %}
+    </section>
+
+    <section>
+      <h2>Languages</h2>
+      <p>{% for l in languages %}<strong>{{ l.name }}</strong> ({{ l.level }}){% if not loop.last %} &middot; {% endif %}{% endfor %}</p>
+    </section>
+
+    <footer>
+      <p>{{ basics.location }} &middot; Updated {{ build_date }}</p>
+    </footer>
+  </main>
+</body>
+</html>
