@@ -39,6 +39,9 @@
   <h2>Summary</h2>
   <p>{{ basics.summary }}</p>
 
+  <h2>Skills</h2>
+  {% for s in skills %}<p><strong>{{ s.group }}:</strong> {{ s["items"] | join(", ") }}</p>{% endfor %}
+
   <h2>Experience</h2>
   {% for job in experience %}
   <div class="company">
@@ -53,19 +56,16 @@
   </div>
   {% endfor %}
 
+  <h2>Projects</h2>
+  {% for f in featured %}<p><strong>{{ f.name }}</strong>, {{ f.label }} <span class="meta">| {{ f.status }}, since {{ f.started }}</span><br>Independent product built end to end: native Android geofencing, PostGIS geospatial discovery, versioned DRF API, passwordless auth, CI/CD with signed Android releases. Backend and website deployed; not yet on app stores. Flutter, Django REST Framework, PostgreSQL, PostGIS. geonote.net</p>{% endfor %}
+  <p><strong>Also:</strong> {% for p in projects if p.url %}{{ p.name }} ({{ p.stack | join(", ") }}){% if not loop.last %}; {% endif %}{% endfor %}. github.com/rrafaelpinto</p>
+
   <h2>Education</h2>
   {% for e in education %}
   <p><strong>{{ e.degree }}</strong>, {{ e.institution }} <span class="meta">| {{ e.period }}</span></p>
   {% endfor %}
 
-  <h2>Skills</h2>
-  {% for s in skills if s.group != "Other" %}<p><strong>{{ s.group }}:</strong> {{ s["items"] | join(", ") }}</p>{% endfor %}
-
-  <h2>Projects</h2>
-  {% for f in featured %}<p><strong>{{ f.name }}</strong>, {{ f.label }} <span class="meta">| {{ f.status }}, since {{ f.started }}</span><br>Independent product built end to end: native Android geofencing, PostGIS geospatial discovery, versioned DRF API, passwordless auth, CI/CD with signed Android releases. Backend and website deployed; not yet on app stores. Flutter, Django REST Framework, PostgreSQL, PostGIS. geonote.net</p>{% endfor %}
-  <p><strong>Also:</strong> {% for p in projects if p.url %}{{ p.name }} ({{ p.stack | join(", ") }}){% if not loop.last %}; {% endif %}{% endfor %}. github.com/rrafaelpinto</p>
-
   <h2>Additional</h2>
-  <p><strong>Languages:</strong> {% for l in languages %}{{ l.name }} ({{ l.level }}){% if not loop.last %}, {% endif %}{% endfor %}. <strong>Certification:</strong> {{ certifications | join(", ") }}. <strong>Publications:</strong> {{ publications | length }} papers on NLP and public health analytics.</p>
+  <p><strong>Languages:</strong> {% for l in languages %}{{ l.name }} ({{ l.level }}){% if not loop.last %}, {% endif %}{% endfor %}. <strong>Certification:</strong> {{ certifications | join(", ") }}.</p>
 </body>
 </html>

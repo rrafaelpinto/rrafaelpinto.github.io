@@ -76,15 +76,6 @@ experience:
           - Built an end-to-end data platform in Python with Scrapy, Pandas and NLTK to collect, clean and structure large volumes of online news.
           - Applied NLP (VADER sentiment analysis adapted to Brazilian Portuguese, TF-IDF, DBSCAN clustering) to detect trends in public health news coverage.
           - Used Interrupted Time Series and segmented regression to measure the impact of government interventions on congenital syphilis rates, with pipelines automated in GitLab CI/CD.
-      - title: Software Engineer
-        period: Feb 2015 - Feb 2018
-        context: >
-          SIMAIES, a national platform for the "Mais Médicos" program that manages partnerships
-          between medical schools and municipal health departments.
-        highlights:
-          - Developed Django web applications and REST APIs with modular, maintainable architecture.
-          - Modeled and optimized PostgreSQL databases for complex workflows, with unit and integration tests.
-          - Worked in Scrum cycles, wrote API and architecture documentation, and mentored junior developers.
 
   - company: Athabasca University
     location: Edmonton, Canada
@@ -95,33 +86,6 @@ experience:
         highlights:
           - Built Python data pipelines and ingestion components from REST APIs and Scrapy for public health behavior and policy research.
           - Delivered dashboards and reports to technical and non-technical international audiences.
-
-  - company: Court of Justice of Rio Grande do Norte (TJRN)
-    location: Natal, Brazil
-    roles:
-      - title: Software Developer
-        period: Sep 2010 - Apr 2014
-        context: null
-        highlights:
-          - Designed Java and Hibernate architecture used to build new court systems, and mentored interns and junior developers through code reviews.
-
-  - company: Memes Educational Technology
-    location: São Paulo, Brazil
-    roles:
-      - title: Software Developer
-        period: Jan 2008 - Aug 2010
-        context: null
-        highlights:
-          - Built Java and Hibernate applications for distance learning platforms, including REST payment integrations.
-
-  - company: Court of Justice of Rio Grande do Norte (TJRN)
-    location: Natal, Brazil
-    roles:
-      - title: Software Developer
-        period: Apr 2005 - Jan 2008
-        context: null
-        highlights:
-          - Developed judicial administration systems with Java and EJB, from requirements to deployment.
 
 skills:
   - group: Backend
@@ -138,8 +102,6 @@ skills:
     items: [Technical leadership, Mentoring, Sprint planning, Scrum, Requirements analysis]
   - group: AI and Data
     items: [Claude Code, OpenAI Codex, OpenAI APIs, LangChain, NLP, NLTK, Pandas, Scrapy]
-  - group: Other
-    items: [Java, Hibernate]
 
 education:
   - degree: PhD, Computer Science
@@ -201,13 +163,6 @@ projects:
     stack: [Django, PostgreSQL, HTMX, Tailwind CSS, ReportLab]
     url: null
 
-publications:
-  - "Systematic Review on Information Technology Approaches to Evaluate the Impact of Public Health Campaigns: Real Cases and Possible Directions"
-  - Sentiment Analysis in Understanding the Potential of Online News in the Public Health Crisis Response
-  - Use of Interrupted Time Series Analysis in Understanding the Course of the Congenital Syphilis Epidemic in Brazil
-  - "Analyzing the reach of public health campaigns based on multidimensional aspects: the case of the syphilis epidemic in Brazil"
-  - Similarity Analysis in Understanding Online News in Response to Public Health Crisis
-
 certifications:
   - React Essential Training
 
@@ -215,6 +170,6 @@ languages:
   - name: Portuguese
     level: Native
   - name: English
-    level: Full professional proficiency
+    level: Fluent
   - name: Spanish
     level: Professional working proficiency

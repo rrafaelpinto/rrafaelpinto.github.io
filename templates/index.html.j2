@@ -31,27 +31,12 @@
       <p>{{ basics.summary }}</p>
     </section>
 
-    {% for f in featured %}
     <section>
-      <h2>Featured project</h2>
-      <article class="featured">
-        <div class="featured-head">
-          <div>
-            <h3>{{ f.name }} <span class="featured-label">| {{ f.label }}</span></h3>
-            <p class="featured-tagline">{{ f.tagline }}</p>
-          </div>
-          <span class="status">{{ f.status }}</span>
-        </div>
-        <p>{{ f.description }}</p>
-        <ul>{% for h in f.highlights %}<li>{{ h }}</li>{% endfor %}</ul>
-        <ul class="tags">{% for t in f.stack %}<li>{{ t }}</li>{% endfor %}</ul>
-        <div class="featured-foot">
-          <nav class="links">{% for l in f.links %}<a href="{{ l.url }}"{% if loop.first %} class="primary"{% endif %}>{{ l.label }}</a>{% endfor %}</nav>
-          <span class="meta">Since {{ f.started }}</span>
-        </div>
-      </article>
+      <h2>Skills</h2>
+      {% for s in skills %}
+      <p class="skill"><strong>{{ s.group }}:</strong> {{ s["items"] | join(", ") }}</p>
+      {% endfor %}
     </section>
-    {% endfor %}
 
     <section>
       <h2>Experience</h2>
@@ -75,17 +60,32 @@
       {% endfor %}
     </section>
 
+    {% for f in featured %}
+    <section>
+      <h2>Featured project</h2>
+      <article class="featured">
+        <div class="featured-head">
+          <div>
+            <h3>{{ f.name }} <span class="featured-label">| {{ f.label }}</span></h3>
+            <p class="featured-tagline">{{ f.tagline }}</p>
+          </div>
+          <span class="status">{{ f.status }}</span>
+        </div>
+        <p>{{ f.description }}</p>
+        <ul>{% for h in f.highlights %}<li>{{ h }}</li>{% endfor %}</ul>
+        <ul class="tags">{% for t in f.stack %}<li>{{ t }}</li>{% endfor %}</ul>
+        <div class="featured-foot">
+          <nav class="links">{% for l in f.links %}<a href="{{ l.url }}"{% if loop.first %} class="primary"{% endif %}>{{ l.label }}</a>{% endfor %}</nav>
+          <span class="meta">Since {{ f.started }}</span>
+        </div>
+      </article>
+    </section>
+    {% endfor %}
+
     <section>
       <h2>Education</h2>
       {% for e in education %}
       <div class="row"><span><strong>{{ e.degree }}</strong><br><span class="muted">{{ e.institution }}</span></span><span class="meta">{{ e.period }}</span></div>
-      {% endfor %}
-    </section>
-
-    <section>
-      <h2>Skills</h2>
-      {% for s in skills %}
-      <p class="skill"><strong>{{ s.group }}:</strong> {{ s["items"] | join(", ") }}</p>
       {% endfor %}
     </section>
 
@@ -100,11 +100,6 @@
         </article>
         {% endfor %}
       </div>
-    </section>
-
-    <section>
-      <h2>Publications</h2>
-      <ul class="plain">{% for pub in publications %}<li>{{ pub }}</li>{% endfor %}</ul>
     </section>
 
     <section class="two-col">
