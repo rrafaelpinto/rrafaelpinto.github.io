@@ -23,6 +23,7 @@
         {% for link in basics.links %}<a href="{{ link.url }}">{{ link.label }}</a>{% endfor %}
         <a href="mailto:{{ basics.email }}">Email</a>
         <a href="resume.pdf" class="primary">Resume (PDF)</a>
+        <a href="{{ basics.booking.url }}" class="accent" target="_blank" rel="noopener">{{ basics.booking.label }}</a>
       </nav>
     </header>
 

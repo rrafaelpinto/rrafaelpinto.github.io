@@ -39,6 +39,7 @@ a:hover { text-decoration: underline; }
   border-radius: 999px;
   font-size: 0.92rem;
 }
+.links a.accent { border-color: var(--accent); color: var(--accent); font-weight: 600; }
 .links a.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
 
 section { margin-top: 48px; }

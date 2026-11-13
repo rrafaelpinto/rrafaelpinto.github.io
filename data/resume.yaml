@@ -5,6 +5,9 @@ basics:
   tagline: Senior Software Engineer and Tech Lead with 15+ years building scalable backend and full-stack applications with Python, Django, React and PostgreSQL.
   location: Brazil (remote)
   email: rrafaelpinto@gmail.com
+  booking:
+    label: Book a 30-min call
+    url: https://calendly.com/rrafaelpinto/30min
   links:
     - label: LinkedIn
       url: https://www.linkedin.com/in/rafaelmpinto/
