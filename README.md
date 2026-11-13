@@ -1,27 +1,31 @@
-# Portfolio and resume
+# Rafael de Morais Pinto | Portfolio and Resume
 
-Personal site and PDF resume generated from a single source file, `data/resume.yaml`.
+Personal portfolio and PDF resume built with Python and Jinja2 and published on GitHub Pages.
 
-## Local build
+[View portfolio](https://rrafaelpinto.github.io/) · [Resume (PDF)](https://rrafaelpinto.github.io/resume.pdf)
+
+## Local preview
+
+Use Python 3.12, the version used by the deployment workflow.
 
 ```bash
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-python build.py            # dist/index.html, dist/resume.pdf
-python build.py --no-pdf   # skip WeasyPrint
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python build.py
 python -m http.server -d dist 8000
 ```
 
-WeasyPrint needs Pango on the system (`apt install libpango-1.0-0 libpangoft2-1.0-0`, or `brew install pango`).
+Open [localhost:8000](http://localhost:8000). The build generates the site and PDF in `dist/`.
 
-## Deploy
+For an HTML-only preview, run `python build.py --no-pdf`. The site builds without loading WeasyPrint, and the resume link requires a full build.
 
-1. Push to `main` on GitHub.
-2. In the repo, go to Settings > Pages and set Source to "GitHub Actions".
-3. Each push to `main` rebuilds and publishes the site.
+PDF generation requires Pango. On Ubuntu, install `libpango-1.0-0` and `libpangoft2-1.0-0`. On macOS, run `brew install pango`.
 
-For a custom domain, set it in Settings > Pages and add the DNS records GitHub shows. GitHub stores it on the Pages config, so no `CNAME` file is needed with Actions deploys.
+## Content and layout
 
-## Updating
+The website and PDF use the profile data in [`data/resume.yaml`](data/resume.yaml). The website layout lives in [`templates/index.html.j2`](templates/index.html.j2) and [`static/style.css`](static/style.css). The PDF has its own [template](templates/resume.html.j2), which includes a short project description.
 
-Edit only `data/resume.yaml`. Site and PDF stay in sync.
+## Deployment
+
+Set the GitHub Pages source to **GitHub Actions** under **Settings → Pages**. The [deploy workflow](.github/workflows/deploy.yml) builds and publishes the site on pushes to `main` and supports manual runs.

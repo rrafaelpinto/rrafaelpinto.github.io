@@ -19,27 +19,28 @@
       <h1>{{ basics.name }}</h1>
       <p class="title">{{ basics.title }}</p>
       <p class="stack">{{ basics.headline }}</p>
-      <nav class="links">
+      <div class="links hero-actions">
+        <a href="resume.pdf" class="primary">Resume (PDF)</a>
+        <a href="#projects" class="secondary">View projects</a>
+        <a href="#experience">Experience</a>
+      </div>
+      <nav class="links contact-links" aria-label="Contact and profiles">
         {% for link in basics.links %}<a href="{{ link.url }}">{{ link.label }}</a>{% endfor %}
         <a href="mailto:{{ basics.email }}">Email</a>
-        <a href="resume.pdf" class="primary">Resume (PDF)</a>
-        <a href="{{ basics.booking.url }}" class="accent" target="_blank" rel="noopener">{{ basics.booking.label }}</a>
+        <a href="{{ basics.booking.url }}" target="_blank" rel="noopener">{{ basics.booking.label }}</a>
       </nav>
     </header>
 
-    <section>
+    <section class="summary">
       <h2>Summary</h2>
-      <p>{{ basics.summary }}</p>
-    </section>
-
-    <section>
-      <h2>Skills</h2>
-      {% for s in skills %}
-      <p class="skill"><strong>{{ s.group }}:</strong> {{ s["items"] | join(", ") }}</p>
+      {% for paragraph in basics.summary.split(" I have led", 1) %}
+      {% set text = paragraph if loop.first else "I have led" ~ paragraph %}
+      {% set before, result, after = text.partition("from about 3.5 s to under 500 ms") %}
+      <p>{{ before }}{% if result %}<strong>{{ result }}</strong>{{ after }}{% endif %}</p>
       {% endfor %}
     </section>
 
-    <section>
+    <section id="experience">
       <h2>Experience</h2>
       {% for job in experience %}
       <div class="company">
@@ -62,39 +63,50 @@
       <p class="earlier">{{ earlier_experience }}</p>
     </section>
 
-    {% for f in featured %}
-    <section>
-      <h2>Featured project</h2>
-      <article class="featured">
-        <div class="featured-head">
-          <div>
-            <h3>{{ f.name }} <span class="featured-label">| {{ f.label }}</span></h3>
-            <p class="featured-tagline">{{ f.tagline }}</p>
-          </div>
-          <span class="status">{{ f.status }}</span>
-        </div>
-        <p>{{ f.description }}</p>
-        <ul>{% for h in f.highlights %}<li>{{ h }}</li>{% endfor %}</ul>
-        <ul class="tags">{% for t in f.stack %}<li>{{ t }}</li>{% endfor %}</ul>
-        <div class="featured-foot">
-          <nav class="links">{% for l in f.links %}<a href="{{ l.url }}"{% if loop.first %} class="primary"{% endif %}>{{ l.label }}</a>{% endfor %}</nav>
-          <span class="meta">Since {{ f.started }}</span>
-        </div>
-      </article>
-    </section>
-    {% endfor %}
-
-    <section>
-      <h2>Other projects</h2>
+    <section id="projects">
+      <h2>Projects</h2>
       <div class="projects">
+        {% for f in featured %}
+        <article class="project">
+          <h3>{{ f.name }}</h3>
+          <p class="project-label">{{ f.label }}</p>
+          <p class="project-meta">{{ f.status }} &middot; Since {{ f.started }}</p>
+          <ul class="project-links">
+            {% for l in f.links %}
+            <li><a href="{{ l.url }}">{{ {"View Product": "Product website", "Engineering Overview": "Engineering overview"}.get(l.label, l.label) }}</a></li>
+            {% endfor %}
+          </ul>
+          <p class="project-tagline">{{ f.tagline }}</p>
+          <p>{{ f.description }}</p>
+          <ul class="tags">{% for t in f.stack %}<li>{{ t }}</li>{% endfor %}</ul>
+          {% if f.highlights %}
+          <details class="project-details">
+            <summary>Technical highlights</summary>
+            <ul>{% for h in f.highlights %}<li>{{ h }}</li>{% endfor %}</ul>
+          </details>
+          {% endif %}
+        </article>
+        {% endfor %}
         {% for p in projects %}
         <article class="project">
-          <h3>{% if p.url %}<a href="{{ p.url }}">{{ p.name }}</a>{% else %}{{ p.name }} <span class="meta">(private repo)</span>{% endif %}</h3>
+          <h3>{{ p.name }}</h3>
+          {% if p.url %}
+          <ul class="project-links"><li><a href="{{ p.url }}" aria-label="{{ p.name }} on GitHub">View on GitHub</a></li></ul>
+          {% else %}
+          <p class="project-meta">Private repository</p>
+          {% endif %}
           <p>{{ p.description }}</p>
           <ul class="tags">{% for t in p.stack %}<li>{{ t }}</li>{% endfor %}</ul>
         </article>
         {% endfor %}
       </div>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      {% for s in skills %}
+      <p class="skill"><strong>{{ s.group }}:</strong> {{ s["items"] | join(", ") }}</p>
+      {% endfor %}
     </section>
 
     <section>
