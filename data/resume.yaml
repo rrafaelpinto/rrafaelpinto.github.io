@@ -87,6 +87,8 @@ experience:
           - Built Python data pipelines and ingestion components from REST APIs and Scrapy for public health behavior and policy research.
           - Delivered dashboards and reports to technical and non-technical international audiences.
 
+earlier_experience: "Earlier: Software Developer roles with Java at the Court of Justice of Rio Grande do Norte (TJRN) and Memes Educational Technology (2005 - 2014)."
+
 skills:
   - group: Backend
     items: [Python, Django, Django REST Framework, REST APIs, Celery, Redis, API design, Domain modeling]

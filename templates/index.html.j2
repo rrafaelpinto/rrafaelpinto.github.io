@@ -58,6 +58,7 @@
         {% endfor %}
       </div>
       {% endfor %}
+      <p class="earlier">{{ earlier_experience }}</p>
     </section>
 
     {% for f in featured %}
@@ -83,13 +84,6 @@
     {% endfor %}
 
     <section>
-      <h2>Education</h2>
-      {% for e in education %}
-      <div class="row"><span><strong>{{ e.degree }}</strong><br><span class="muted">{{ e.institution }}</span></span><span class="meta">{{ e.period }}</span></div>
-      {% endfor %}
-    </section>
-
-    <section>
       <h2>Other projects</h2>
       <div class="projects">
         {% for p in projects %}
@@ -100,6 +94,13 @@
         </article>
         {% endfor %}
       </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      {% for e in education %}
+      <div class="row"><span><strong>{{ e.degree }}</strong><br><span class="muted">{{ e.institution }}</span></span><span class="meta">{{ e.period }}</span></div>
+      {% endfor %}
     </section>
 
     <section class="two-col">

@@ -55,6 +55,7 @@
     {% endfor %}
   </div>
   {% endfor %}
+  <p class="context">{{ earlier_experience }}</p>
 
   <h2>Projects</h2>
   {% for f in featured %}<p><strong>{{ f.name }}</strong>, {{ f.label }} <span class="meta">| {{ f.status }}, since {{ f.started }}</span><br>Independent product built end to end: native Android geofencing, PostGIS geospatial discovery, versioned DRF API, passwordless auth, CI/CD with signed Android releases. Backend and website deployed; not yet on app stores. Flutter, Django REST Framework, PostgreSQL, PostGIS. geonote.net</p>{% endfor %}

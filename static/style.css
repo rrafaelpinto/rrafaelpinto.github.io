@@ -94,4 +94,6 @@ h2 {
 .featured > ul:not(.tags) li { margin-bottom: 4px; }
 .featured-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
 
+.earlier { color: var(--muted); font-size: 0.94rem; margin: 0; }
+
 footer { margin-top: 56px; border-top: 1px solid var(--border); padding-top: 16px; color: var(--muted); font-size: 0.85rem; }
