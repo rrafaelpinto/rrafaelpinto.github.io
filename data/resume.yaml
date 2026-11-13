@@ -131,7 +131,7 @@ skills:
   - group: Frontend
     items: [React, TypeScript, JavaScript, Next.js, HTML, CSS]
   - group: Cloud and DevOps
-    items: [Microsoft Azure, Azure Blob Storage, Azure Key Vault, Docker, GitHub Actions, GitLab CI/CD, Git]
+    items: [Microsoft Azure, Azure Blob Storage, Azure Key Vault, Docker, GitHub Actions, GitLab CI/CD]
   - group: Quality
     items: [Unit testing, Integration testing, BDD (behave), Code review, Observability, Production debugging]
   - group: Leadership
@@ -155,6 +155,32 @@ education:
     institution: Potiguar University
     period: 2001 - 2004
 
+featured:
+  - name: GeoNote
+    label: Location-Based Reminder App
+    tagline: Reminders for where life happens.
+    started: Aug 2025
+    status: Functional pre-launch MVP
+    description: >
+      An independent product I designed and built end to end. Users attach a reminder to a
+      place and get a notification when they arrive nearby. The Django REST API and the product
+      website are deployed, and signed Android builds were validated on physical devices,
+      including alerts after the app was closed and after a reboot. The app is not yet publicly
+      released on app stores, and iOS is not supported yet.
+    highlights:
+      - Native Android geofencing with background notifications that do not depend on a running Flutter process, with cooldown and re-entry rules against duplicate alerts.
+      - Geospatial data with PostgreSQL and PostGIS, including location-based discovery of nearby public reminders.
+      - Django REST Framework API with a versioned mobile contract (/api/v1/) so backend deploys stay compatible with installed app versions.
+      - Passwordless sign-in with email one-time codes and JWT sessions.
+      - Privacy controls, reminder sharing (private, unlisted or public) and moderation with audit history.
+      - CI/CD with GitHub Actions, automated tests, a signed Android release workflow, structured logs and request correlation.
+    stack: [Flutter, Dart, Python, Django REST Framework, PostgreSQL, PostGIS, REST APIs, GitHub Actions]
+    links:
+      - label: View Product
+        url: https://geonote.net/
+      - label: Engineering Overview
+        url: https://github.com/rrafaelpinto/geonote-product
+
 projects:
   - name: ResumeBot
     description: >
@@ -168,12 +194,6 @@ projects:
       and editorial review.
     stack: [DRF, React, TypeScript, Celery, Redis, PostgreSQL, OpenAI]
     url: https://github.com/rrafaelpinto/post-pilot
-  - name: GeoNote
-    description: >
-      Location-based reminders with geofencing, local notifications, cloud sync and
-      passwordless authentication.
-    stack: [Flutter, Django, DRF, PostgreSQL, PostGIS]
-    url: null
   - name: Talent Pool
     description: >
       Talent directory with structured candidate profiles, publication controls, search and

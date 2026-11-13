@@ -31,6 +31,28 @@
       <p>{{ basics.summary }}</p>
     </section>
 
+    {% for f in featured %}
+    <section>
+      <h2>Featured project</h2>
+      <article class="featured">
+        <div class="featured-head">
+          <div>
+            <h3>{{ f.name }} <span class="featured-label">| {{ f.label }}</span></h3>
+            <p class="featured-tagline">{{ f.tagline }}</p>
+          </div>
+          <span class="status">{{ f.status }}</span>
+        </div>
+        <p>{{ f.description }}</p>
+        <ul>{% for h in f.highlights %}<li>{{ h }}</li>{% endfor %}</ul>
+        <ul class="tags">{% for t in f.stack %}<li>{{ t }}</li>{% endfor %}</ul>
+        <div class="featured-foot">
+          <nav class="links">{% for l in f.links %}<a href="{{ l.url }}"{% if loop.first %} class="primary"{% endif %}>{{ l.label }}</a>{% endfor %}</nav>
+          <span class="meta">Since {{ f.started }}</span>
+        </div>
+      </article>
+    </section>
+    {% endfor %}
+
     <section>
       <h2>Experience</h2>
       {% for job in experience %}
@@ -68,7 +90,7 @@
     </section>
 
     <section>
-      <h2>Side projects</h2>
+      <h2>Other projects</h2>
       <div class="projects">
         {% for p in projects %}
         <article class="project">

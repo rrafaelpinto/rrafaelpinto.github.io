@@ -77,4 +77,21 @@ h2 {
 .project h3 { margin: 0 0 6px; font-size: 1rem; }
 .project p { margin: 0 0 10px; font-size: 0.94rem; }
 
+.featured {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
+  border-radius: 10px;
+  padding: 22px;
+}
+.featured-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
+.featured h3 { margin: 0; font-size: 1.3rem; }
+.featured-label { color: var(--muted); font-weight: 500; font-size: 1rem; }
+.featured-tagline { margin: 2px 0 0; color: var(--muted); font-style: italic; }
+.status { font-size: 0.8rem; border: 1px solid var(--accent); color: var(--accent); padding: 2px 10px; border-radius: 999px; white-space: nowrap; }
+.featured > p { margin: 14px 0 8px; }
+.featured > ul:not(.tags) { margin: 0 0 14px; padding-left: 20px; }
+.featured > ul:not(.tags) li { margin-bottom: 4px; }
+.featured-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+
 footer { margin-top: 56px; border-top: 1px solid var(--border); padding-top: 16px; color: var(--muted); font-size: 0.85rem; }
