@@ -15,9 +15,10 @@ basics:
     full-stack applications with Python, Django, Django REST Framework, PostgreSQL, React,
     TypeScript and REST APIs. I specialize in backend architecture, API design, domain
     modeling, database optimization, asynchronous processing with Celery and Redis, automated
-    testing and production debugging. I have led backend teams and projects in healthcare and
-    the public sector, running sprint planning, code reviews and mentoring. On SUAP, a
-    Django ERP used by Brazilian federal institutions, I cut execution time of critical
+    testing and production debugging. I have led engineering teams in healthcare and the
+    public sector, running sprint planning, code reviews and mentoring, and I coordinate SUAP
+    technology transfer projects between Brazilian federal institutions. On SUAP, a Django ERP used
+    across the federal network, I cut execution time of critical
     workflows by more than 70% and API latency from about 3.5 s to under 500 ms. I hold a PhD
     in Computer Science and use AI coding agents (Claude Code, OpenAI Codex) daily with human
     review.
@@ -33,9 +34,9 @@ experience:
           used by Brazilian federal institutions for academic, administrative and HR operations.
         highlights:
           - Redesigned Django ORM data-access patterns and eliminated N+1 queries, reducing execution time of critical workflows by more than 70% and API latency from about 3.5 s to under 500 ms.
+          - "Coordinate SUAP technology transfer projects from IFRN to other federal institutions, leading work plans, deployment and knowledge transfer with partner teams: IFPR (completed), UFT (Dec 2024 - Jan 2026, all 6 goals delivered), IFAM (in progress) and UFNT (starting Jan 2027)."
           - Design and build mission-critical backend modules with Python, Django and Django REST Framework.
           - Model PostgreSQL databases and write advanced queries, views and stored procedures for institutional workflows and reporting.
-          - Coordinated the IFRN-UFT technical cooperation project that deployed SUAP at the Federal University of Tocantins (Dec 2024 - Jan 2026), delivering all 6 project goals.
           - Apply BDD (behave) and automated tests, and own the SDLC from technical planning to deployment and support across multiple campuses.
 
   - company: SkilldLabs (allocated to Zivian Health)
