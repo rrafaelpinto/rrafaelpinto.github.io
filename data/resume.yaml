@@ -1,7 +1,7 @@
 basics:
   name: Rafael de Morais Pinto
   title: Senior Software Engineer | Tech Lead
-  headline: Python, Django, Django REST Framework, React, PostgreSQL, REST APIs, Celery
+  headline: Full Stack | Python, Django, Django REST Framework, React, PostgreSQL, REST APIs, Celery
   tagline: Senior Software Engineer and Tech Lead with 15+ years building scalable backend and full-stack applications with Python, Django, React and PostgreSQL.
   location: Brazil (remote)
   email: rrafaelpinto@gmail.com
@@ -16,7 +16,7 @@ basics:
     TypeScript and REST APIs. I specialize in backend architecture, API design, domain
     modeling, database optimization, asynchronous processing with Celery and Redis, automated
     testing and production debugging. I have led engineering teams in healthcare and the
-    public sector, running sprint planning, code reviews and mentoring, and I coordinate SUAP
+    public sector, running sprint planning, code reviews and mentoring, and have coordinated SUAP
     technology transfer projects between Brazilian federal institutions. On SUAP, a Django ERP used
     across the federal network, I cut execution time of critical
     workflows by more than 70% and API latency from about 3.5 s to under 500 ms. I hold a PhD
@@ -34,7 +34,7 @@ experience:
           used by Brazilian federal institutions for academic, administrative and HR operations.
         highlights:
           - Redesigned Django ORM data-access patterns and eliminated N+1 queries, reducing execution time of critical workflows by more than 70% and API latency from about 3.5 s to under 500 ms.
-          - "Coordinate SUAP technology transfer projects from IFRN to other federal institutions, leading work plans, deployment and knowledge transfer with partner teams: IFPR (completed), UFT (Dec 2024 - Jan 2026, all 6 goals delivered), IFAM (in progress) and UFNT (starting Jan 2027)."
+          - Coordinated four SUAP technology transfer projects from IFRN to other federal institutions (IFPR, UFT, IFAM and UFNT), leading work plans, deployment and knowledge transfer with partner teams.
           - Design and build mission-critical backend modules with Python, Django and Django REST Framework.
           - Model PostgreSQL databases and write advanced queries, views and stored procedures for institutional workflows and reporting.
           - Apply BDD (behave) and automated tests, and own the SDLC from technical planning to deployment and support across multiple campuses.
