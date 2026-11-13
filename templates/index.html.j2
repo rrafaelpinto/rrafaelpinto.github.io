@@ -8,6 +8,9 @@
   <meta property="og:title" content="{{ basics.name }} | {{ basics.title }}">
   <meta property="og:description" content="{{ basics.tagline }}">
   <meta property="og:type" content="profile">
+  <meta property="og:url" content="{{ site_url }}">
+  <link rel="canonical" href="{{ site_url }}">
+  <script type="application/ld+json">{{ person_jsonld | safe }}</script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>

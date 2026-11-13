@@ -2,6 +2,7 @@
 
 import argparse
 import datetime as dt
+import json
 import shutil
 from pathlib import Path
 
@@ -10,12 +11,43 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
 ROOT = Path(__file__).parent
 DIST = ROOT / "dist"
+SITE_URL = "https://rrafaelpinto.github.io/"
 
 
 def load_data() -> dict:
     data = yaml.safe_load((ROOT / "data" / "resume.yaml").read_text(encoding="utf-8"))
     data["build_date"] = dt.date.today().strftime("%b %Y")
+    data["site_url"] = SITE_URL
+    basics = data["basics"]
+    person = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": basics["name"],
+        "jobTitle": basics["title"],
+        "description": basics["tagline"],
+        "url": SITE_URL,
+        "email": f"mailto:{basics['email']}",
+        "sameAs": [link["url"] for link in basics["links"]],
+        "knowsAbout": [item for group in data["skills"] for item in group["items"]][:20],
+        "alumniOf": sorted({e["institution"] for e in data["education"]}),
+    }
+    data["person_jsonld"] = json.dumps(person, ensure_ascii=False).replace("</", "<\\/")
     return data
+
+
+def write_seo_files() -> None:
+    today = dt.date.today().isoformat()
+    (DIST / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n", encoding="utf-8")
+    urls = "".join(
+        f"  <url><loc>{SITE_URL}{path}</loc><lastmod>{today}</lastmod></url>\n"
+        for path in ("", "resume.pdf")
+    )
+    (DIST / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f"{urls}</urlset>\n",
+        encoding="utf-8",
+    )
 
 
 def render(env: Environment, template: str, data: dict) -> str:
@@ -47,6 +79,7 @@ def main() -> None:
 
         HTML(string=resume_html, base_url=str(ROOT)).write_pdf(DIST / "resume.pdf")
 
+    write_seo_files()
     print(f"Built {DIST}")
 
 
